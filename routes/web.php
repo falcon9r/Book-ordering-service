@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,13 @@ Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, '
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware('guest')->group(function (){
+    Route::post('reset-password' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'reset_password'])->name('password.update');
+    Route::get('reset-password/{token}' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'reset_password_view'])->name('password.reset');
+    Route::view('forgot-password' , 'auth.forgot-password')->name('password.request');
+    Route::post('forgot-password' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'forgot_password'])->name('password.email');
 });
 
 Route::middleware('auth')->group(function (){

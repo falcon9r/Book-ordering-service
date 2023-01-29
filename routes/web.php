@@ -39,4 +39,12 @@ Route::middleware('auth')->group(function (){
     Route::view('email/verify', 'auth.verify-email')->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', [\App\Http\Controllers\Auth\VerificationController::class , 'verify'])->middleware('signed')->name('verification.verify');
     Route::get('/email/verification-notification', [\App\Http\Controllers\Auth\VerificationController::class, 'notification'])->middleware('throttle:6,1')->name('verification.send');
+
+    Route::middleware('verified')->group(function (){
+          Route::get('profile' , [\App\Http\Controllers\ProfileController::class , 'profile']);
+          Route::get('settings' , [\App\Http\Controllers\ProfileController::class , 'settings'])->name('settings');
+          Route::put('settings' , [\App\Http\Controllers\ProfileController::class , 'update'])->name('settings.update');
+          Route::post('settings-photo' , [\App\Http\Controllers\ProfileController::class , 'settings_photo'])->name("settings.photo");
+          // Route::resource('books');
+    });
 });

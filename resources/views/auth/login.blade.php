@@ -52,7 +52,7 @@
                                         <div class="row flex-between-center">
                                             <div class="col-auto">
                                                 <div class="form-check mb-0">
-                                                    {!! Form::checkbox('remember' , true ,  false , ['class' => 'form-check-input' , 'required']); !!}
+                                                    {!! Form::checkbox('remember' , true ,  false , ['class' => 'form-check-input']); !!}
                                                     <label class="form-check-label mb-0" for="split-checkbox">Remember me</label>
                                                 </div>
                                             </div>

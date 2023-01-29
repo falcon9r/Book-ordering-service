@@ -8,6 +8,7 @@
 
 namespace App\Repositories\User;
 
+use App\Http\Requests\Profile\PhotoRequest;
 use App\Models\User\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,5 +30,22 @@ class UserRepository implements UserRepositoryContract
          {
              return null;
          }
+    }
+
+    public function uploadPhoto(PhotoRequest $request)
+    {
+        $path = $request->file('avatar')->storePublicly(User::DIRECTORY , [
+            'disk' => 'public'
+        ]);
+        $user = User::query()->find(Auth::id());
+        $user->update([
+            'avatar' => $path
+        ]);
+    }
+
+    public function update($data)
+    {
+        $user = User::query()->find(Auth::id());
+        $user->update($data);
     }
 }

@@ -11,6 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    const DIRECTORY = "avatars";
+
     protected  $fillable = [
         'name',
         'email',
@@ -18,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
         'address',
         'email_verified_at',
+        'avatar',
         'id',
     ];
     /**
@@ -45,4 +49,16 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'path'
+    ];
+
+    public function getPathAttribute(){
+        if($this->avatar == null)
+        {
+            return "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=";
+        }
+        return asset('storage/'.$this->avatar);
+    }
 }

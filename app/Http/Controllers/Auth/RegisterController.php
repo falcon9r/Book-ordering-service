@@ -20,5 +20,6 @@ class RegisterController extends Controller
         $data = $request->validated();
         $user = $userRepositoryContract->create($data);
         Auth::login($user);
+        return redirect()->route('verification.notice');
     }
 }

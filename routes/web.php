@@ -45,5 +45,6 @@ Route::middleware('auth')->group(function (){
           Route::get('settings' , [\App\Http\Controllers\ProfileController::class , 'settings'])->name('settings');
           Route::put('settings' , [\App\Http\Controllers\ProfileController::class , 'update'])->name('settings.update');
           Route::post('settings-photo' , [\App\Http\Controllers\ProfileController::class , 'settings_photo'])->name("settings.photo");
+          // Route::resource('books');
     });
 });

@@ -25,7 +25,7 @@ Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, '
 
 
 Route::get('/', function () {
-    return \App\Models\Book\Book::query()->find(4)->with('categories')->get();
+    return view('welcome');
 });
 
 Route::middleware('guest')->group(function (){

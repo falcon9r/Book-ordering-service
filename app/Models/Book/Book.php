@@ -6,11 +6,12 @@ use App\Models\Category\Category;
 use App\Models\CategoryBook\CategoryBook;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory , SoftDeletes;
 
     const DIRECTORY = 'book-covers';
 

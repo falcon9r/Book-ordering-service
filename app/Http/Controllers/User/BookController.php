@@ -71,7 +71,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        return view('user.book.show');
+        return view('user.book.show', [
+            'book' => $this->bookRepositoryContract->FindById($id)
+        ]);
     }
 
     /**
@@ -111,7 +113,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = $this->bookRepositoryContract->SoftDelete($id);
     }
 
     public function upload(UploadRequest $request ,$id)

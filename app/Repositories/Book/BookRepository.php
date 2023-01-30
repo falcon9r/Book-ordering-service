@@ -55,4 +55,10 @@ class BookRepository implements BookRepositoryContract
             ]);
         }
     }
+
+    public function SoftDelete($book_id)
+    {
+        $book = $this->FindById($book_id);
+        $book->delete();
+    }
 }

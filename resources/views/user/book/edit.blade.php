@@ -64,16 +64,29 @@
                         {!! Form::number('age_limit', $book->age_limit , ['class' => 'form-control', 'required' , 'placeholder' => 'Enter Age Limit']) !!}
                     </div>
 
-
-                    {!! Form::label('categories', 'Categories', ['class' => 'label-text']) !!}
-                    <select class="form-select js-choice" id="organizerMultiple" multiple="multiple" size="1" name="categories[]" data-options='{"removeItemButton":true,"placeholder":true}'>
-                        @foreach($book->categories as $category)
-                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                        @endforeach
-                        @foreach($categories as $category)
+                    <div class="mb-3">
+                        {!! Form::label('categories', 'Categories', ['class' => 'label-text']) !!}
+                        <select class="form-select js-choice" id="organizerMultiple" multiple="multiple" size="1" name="categories[]" data-options='{"removeItemButton":true,"placeholder":true}'>
+                            @foreach($book->categories as $category)
+                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                            @endforeach
+                            @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
-                    </select>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        {!! Form::label('authors', 'Authors', ['class' => 'label-text']) !!}
+                        <select class="form-select js-choice" id="organizerMultiple" multiple="multiple" size="1" name="authors[]" data-options='{"removeItemButton":true,"placeholder":true}'>
+                            @foreach($book->authors as $author)
+                                <option value="{{ $author->id }}" selected>{{ $author->name }}</option>
+                            @endforeach
+                            @foreach($authors as $author)
+                                <option value="{{ $author->id }}">{{ $author->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <div class="mb-3">
                         {!! Form::label('annotation', 'Annotation', ['class' => 'label-text']) !!}

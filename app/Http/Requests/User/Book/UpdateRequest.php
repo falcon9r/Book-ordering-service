@@ -32,7 +32,8 @@ class UpdateRequest extends FormRequest
             'count_of_pages' => 'required|integer|min:0',
             'age_limit' => 'required|integer|min:0',
             'publication' => 'integer|required|min:1901|max:2155',
-            'categories.*' => "integer|exists:categories,id"
+            'categories.*' => "integer|exists:categories,id",
+            'authors.*' => "integer|exists:authors,id"
         ];
     }
 }

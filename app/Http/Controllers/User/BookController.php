@@ -10,17 +10,22 @@ use App\Http\Requests\User\Book\UploadRequest;
 use App\Models\Book\Book;
 use App\Repositories\Book\BookRepositoryContract;
 use App\Repositories\Category\CategoryRepositoryContract;
+use App\Repositories\Common\AuthorsRepositoryContract;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     private $bookRepositoryContract;
-    protected $categoryRepositoryContract;
+    private $categoryRepositoryContract;
+    private $authorsRepositoryContract;
 
-    public function __construct(BookRepositoryContract $bookRepositoryContract , CategoryRepositoryContract $categoryRepositoryContract)
+    public function __construct(BookRepositoryContract $bookRepositoryContract ,
+                                CategoryRepositoryContract $categoryRepositoryContract ,
+                                AuthorsRepositoryContract $authorsRepositoryContract)
     {
         $this->bookRepositoryContract = $bookRepositoryContract;
         $this->categoryRepositoryContract = $categoryRepositoryContract;
+        $this->authorsRepositoryContract = $authorsRepositoryContract;
     }
 
     /**
@@ -43,7 +48,8 @@ class BookController extends Controller
     public function create()
     {
         return view('user.book.create' , [
-            'categories' => $this->categoryRepositoryContract->categories()
+            'categories' => $this->categoryRepositoryContract->categories(),
+            'authors' => $this->authorsRepositoryContract->authors()
         ]);
     }
 
@@ -86,7 +92,8 @@ class BookController extends Controller
     {
         return view("user.book.edit",[
             'book' => $this->bookRepositoryContract->FindById($id),
-            'categories' => $this->categoryRepositoryContract->UnselectedСategories($id)
+            'categories' => $this->categoryRepositoryContract->UnselectedСategories($id),
+            'authors' => $this->authorsRepositoryContract->unSelectedAuthors($id)
         ]);
     }
 

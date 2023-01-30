@@ -27,4 +27,26 @@ class CategoryRepository implements CategoryRepositoryContract
     {
         return Category::query()->inRandomOrder()->limit($limit)->get();
     }
+
+    public function create($data)
+    {
+        return Category::query()->create($data);
+    }
+
+    public function find($category_id)
+    {
+        return Category::query()->findOrFail($category_id);
+    }
+
+    public function delete($category_id)
+    {
+        $category = $this->find($category_id);
+        return $category->delete();
+    }
+
+    public function update($data, $category_id)
+    {
+        $category = $this->find($category_id);
+        return $category->update($data);
+    }
 }

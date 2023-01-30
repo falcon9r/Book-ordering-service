@@ -15,4 +15,12 @@ interface CategoryRepositoryContract
     public function UnselectedСategories($book_id);
 
     public function WelcomeCategoryWithBook($limit = 5);
+
+    public function find($category_id);
+
+    public  function delete($category_id);
+
+    public function create($data);
+
+    public function update($data, $category_id);
 }

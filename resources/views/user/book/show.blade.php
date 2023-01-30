@@ -30,11 +30,18 @@
                                 <h4 class="d-flex align-items-center"><span class="text-warning me-2">{{ $book->display_price }}</span></h4>
                                 <p class="fs--1 mb-1"> <span>Age Limit: </span><strong>{{ $book->display_age_limit }}</strong></p>
                                 <p class="fs--1">Count of Pages: <strong>{{ $book->count_of_pages }}</strong></p>
-                                <p class="fs--1 mb-3">Tags:
+                                <p class="fs--1 mb-3">Categories:
                                     @forelse($book->categories as $category)
                                          <a class="ms-2" href="#!">{{ $category->name }}</a>
                                     @empty
-                                        No tags
+                                        No Categories
+                                    @endforelse
+                                </p>
+                                <p class="fs--1 mb-3">Authors:
+                                    @forelse($book->authors as $author)
+                                        <a class="ms-2" href="#!">{{ $author->name }}</a>
+                                    @empty
+                                        No Authors
                                     @endforelse
                                 </p>
                                 <div class="row">

@@ -65,6 +65,16 @@
                     </div>
 
 
+
+                    <div class="mb-3">
+                        {!! Form::label('authors', 'Authors', ['class' => 'label-text']) !!}
+                        <select class="form-select js-choice" id="organizerMultiple" multiple="multiple" size="1" name="authors[]" data-options='{"removeItemButton":true,"placeholder":true}'>
+                            @foreach($authors as $author)
+                                <option value="{{ $author->id }}">{{ $author->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="mb-3">
                         {!! Form::label('annotation', 'Annotation', ['class' => 'label-text']) !!}
                         {!! Form::textarea('annotation', null, ['class' => 'form-control', 'required' , 'placeholder' => 'Enter annotation' ,  'rows' =>"4", 'cols' => "50"]) !!}

@@ -9,6 +9,7 @@
 namespace App\Repositories\Book;
 
 
+use App\Models\AuthorBook\AuthorBook;
 use App\Models\Book\Book;
 use App\Models\CategoryBook\CategoryBook;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,10 @@ class BookRepository implements BookRepositoryContract
         {
             $this->addingCategories($data['categories'] , $book->id);
         }
+        if(isset($data['authors']))
+        {
+            $this->addingAuthors($data['authors'] , $book->id);
+        }
         return $book;
     }
 
@@ -34,9 +39,14 @@ class BookRepository implements BookRepositoryContract
     {
         $book = $this->FindById($id);
         CategoryBook::query()->where('book_id', $id)->forceDelete();
+        AuthorBook::query()->where('book_id' , $id)->forceDelete();
         if(isset($data['categories']))
         {
             $this->addingCategories($data['categories'] , $id);
+        }
+        if(isset($data['authors']))
+        {
+            $this->addingAuthors($data['authors'] , $book->id);
         }
         return $book->update($data);
     }
@@ -56,6 +66,16 @@ class BookRepository implements BookRepositoryContract
         }
     }
 
+    private function addingAuthors($authors, $book_id)
+    {
+        foreach($authors as $author_id)
+        {
+            AuthorBook::query()->create([
+                'author_id' => $author_id,
+                'book_id' => $book_id
+            ]);
+        }
+    }
     public function SoftDelete($book_id)
     {
         $book = $this->FindById($book_id);

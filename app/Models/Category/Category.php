@@ -6,10 +6,11 @@ use App\Models\Book\Book;
 use App\Models\CategoryBook\CategoryBook;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory , SoftDeletes;
     const  WELCOMEBOOKLIMIT = 10;
     protected $fillable = [
         'name',

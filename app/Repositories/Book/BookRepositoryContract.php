@@ -19,4 +19,6 @@ interface BookRepositoryContract
     public function UserBooks($paginate = 10);
 
     public function SoftDelete($book_id);
+
+    public function booksByOrderIdDesc($limit = 10);
 }

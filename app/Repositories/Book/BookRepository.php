@@ -61,4 +61,9 @@ class BookRepository implements BookRepositoryContract
         $book = $this->FindById($book_id);
         $book->delete();
     }
+
+    public function booksByOrderIdDesc($limit = 10)
+    {
+        return Book::query()->orderByDesc('id')->limit($limit)->get();
+    }
 }

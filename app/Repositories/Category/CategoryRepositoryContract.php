@@ -13,4 +13,6 @@ interface CategoryRepositoryContract
     public function categories();
 
     public function UnselectedСategories($book_id);
+
+    public function WelcomeCategoryWithBook($limit = 5);
 }

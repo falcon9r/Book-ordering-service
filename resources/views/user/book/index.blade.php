@@ -48,7 +48,7 @@
                                 <div class="mb-4 col-md-6 col-lg-4">
                                     <div class="border rounded-1 h-100 d-flex flex-column justify-content-between pb-3">
                                         <div class="overflow-hidden">
-                                            <div class="position-relative rounded-top overflow-hidden"><a class="d-block" href="{{ route('user.books.edit' , $book->id) }}">
+                                            <div class="position-relative rounded-top overflow-hidden"><a class="d-block" href="{{ route('user.books.show' , $book->id) }}">
                                                     <img class="img-fluid rounded-top" src="{{ $book->path }}" alt="" /></a>
                                             </div>
                                             <div class="p-3">

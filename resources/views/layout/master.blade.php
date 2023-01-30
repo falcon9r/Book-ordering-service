@@ -45,24 +45,51 @@
                                                        data-bs-toggle="collapse" aria-expanded="false"
                                                        aria-controls="dashboard">
                                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                                class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span>
+                                                class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Settings</span>
                                     </div>
                                 </a>
                                 <ul class="nav collapse false" id="dashboard">
-                                    <li class="nav-item"><a class="nav-link" href="../index.html" aria-expanded="false">
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('profile') }}" aria-expanded="false">
                                             <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text ps-1">Default</span>
+                                                    class="nav-link-text ps-1">Profile</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="../dashboard/analytics.html"
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('settings') }}"
                                                             aria-expanded="false">
-                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Analytics</span>
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Edit Personal data</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
+                                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="#mybook" role="button"
+                                                           data-bs-toggle="collapse" aria-expanded="false"
+                                                           aria-controls="email">
+                                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                                        class="fas fa-book"></span></span><span class="nav-link-text ps-1">Books</span>
+                                        </div>
+                                    </a>
+                                    <ul class="nav collapse false" id="mybook">
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('user.books.index') }}" aria-expanded="false">
+                                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">All</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('user.books.create') }}" aria-expanded="false">
+                                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Create</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="app/email/compose.html" aria-expanded="false">
+                                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Orders</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -74,10 +101,39 @@
                                         <hr class="mb-0 navbar-vertical-divider"/>
                                     </div>
                                 </div>
+
+                                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#book" role="button"
+                                                       data-bs-toggle="collapse" aria-expanded="false"
+                                                       aria-controls="email">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                                    class="fas fa-book"></span></span><span class="nav-link-text ps-1">Books</span>
+                                    </div>
+                                </a>
+                                <ul class="nav collapse false" id="book">
+                                    <li class="nav-item"><a class="nav-link" href="app/email/inbox.html" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Basket</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="app/email/email-detail.html" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">My Orders</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="app/email/compose.html" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Recommendations</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+
                                 <!-- parent pages--><a class="nav-link" href="../app/calendar.html" role="button"
                                                        aria-expanded="false">
                                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                                class="fas fa-calendar-alt"></span></span><span class="nav-link-text ps-1">Calendar</span>
+                                                class="fas fa-calendar-alt"></span></span><span class="nav-link-text ps-1"></span>
                                     </div>
                                 </a>
                                 <!-- parent pages--><a class="nav-link" href="../app/chat.html" role="button"
@@ -115,7 +171,13 @@
                     </a>
                     <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
                         </li class="nav-item">
-                        Username
+                            @if(auth()->user() != null)
+                                {{ auth()->user()->name }}
+                            @else
+                            <a href="{{ route('login') }}">
+                                Login
+                            </a>
+                            @endif
                         </li>
                         <li class="nav-item">
                             <div class="theme-control-toggle fa-icon-wait ps-2">

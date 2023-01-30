@@ -27,7 +27,6 @@ Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, '
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::middleware('guest')->group(function (){
     Route::post('reset-password' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'reset_password'])->name('password.update');
     Route::get('reset-password/{token}' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'reset_password_view'])->name('password.reset');
@@ -41,11 +40,14 @@ Route::middleware('auth')->group(function (){
     Route::get('/email/verification-notification', [\App\Http\Controllers\Auth\VerificationController::class, 'notification'])->middleware('throttle:6,1')->name('verification.send');
 
     Route::middleware('verified')->group(function (){
-          Route::get('profile' , [\App\Http\Controllers\ProfileController::class , 'profile']);
+          Route::get('home' , function (){})->name('home');
+          Route::get('profile' , [\App\Http\Controllers\ProfileController::class , 'profile'])->name('profile');
           Route::get('settings' , [\App\Http\Controllers\ProfileController::class , 'settings'])->name('settings');
           Route::put('settings' , [\App\Http\Controllers\ProfileController::class , 'update'])->name('settings.update');
           Route::post('settings-photo' , [\App\Http\Controllers\ProfileController::class , 'settings_photo'])->name("settings.photo");
           Route::resource('books' , \App\Http\Controllers\User\BookController::class , ['names' => 'user.books']);
           Route::patch('books/{book}/upload', [\App\Http\Controllers\User\BookController::class , 'upload'])->name('user.books.photo-upload');
+          Route::get('/dashboard' , function(){})->name('dashboard');
+
     });
 });

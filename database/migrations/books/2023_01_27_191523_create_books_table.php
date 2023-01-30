@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->text("annotation");
+            $table->bigInteger('code');
             $table->string("book_cover");
             $table->integer("user_id")->comment("he/she is owner");
             $table->decimal("price")->nullable();
-            $table->integer("number_of_pages")->nullable();
+            $table->integer("count_of_pages")->nullable();
             $table->integer("age_limit")->nullable();
             $table->year("publication")->nullable();
             $table->softDeletes();

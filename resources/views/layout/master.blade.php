@@ -151,6 +151,61 @@
                                     </div>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <!-- label-->
+                                <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                                    <div class="col-auto navbar-vertical-label">Common
+                                    </div>
+                                    <div class="col ps-0">
+                                        <hr class="mb-0 navbar-vertical-divider"/>
+                                    </div>
+                                </div>
+
+                                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#Authors" role="button"
+                                                       data-bs-toggle="collapse" aria-expanded="false"
+                                                       aria-controls="email">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                                    class="fas fa-book"></span></span><span class="nav-link-text ps-1">Authors</span>
+                                    </div>
+                                </a>
+                                <ul class="nav collapse false" id="Authors">
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('common.authors.index') }}" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">All</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('common.authors.create') }}" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Create</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+
+
+                                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#Categories" role="button"
+                                                       data-bs-toggle="collapse" aria-expanded="false"
+                                                       aria-controls="email">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                                    class="fas fa-book"></span></span><span class="nav-link-text ps-1">Categories</span>
+                                    </div>
+                                </a>
+                                <ul class="nav collapse false" id="Categories">
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('common.categories.index') }}" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">All</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('common.categories.create') }}" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Create</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

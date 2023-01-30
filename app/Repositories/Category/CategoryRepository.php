@@ -17,8 +17,14 @@ class CategoryRepository implements CategoryRepositoryContract
     {
         return Category::query()->get();
     }
+
     public function UnselectedСategories($book_id){
         $selected_categories_ids = CategoryBook::query()->where('book_id', $book_id)->pluck('category_id');
         return Category::query()->whereNotIn('id' , $selected_categories_ids)->get();
+    }
+
+    public function WelcomeCategoryWithBook($limit = 5)
+    {
+        return Category::query()->inRandomOrder()->limit($limit)->get();
     }
 }

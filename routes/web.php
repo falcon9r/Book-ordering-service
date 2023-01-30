@@ -23,10 +23,9 @@ Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, '
 
 
 
+Route::get('/' , [\App\Http\Controllers\Landing\HomeController::class , 'welcome'])->name('home');
+Route::get('/home' , [\App\Http\Controllers\Landing\HomeController::class , 'welcome']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::middleware('guest')->group(function (){
     Route::post('reset-password' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'reset_password'])->name('password.update');
     Route::get('reset-password/{token}' , [\App\Http\Controllers\Auth\PasswordResetController::class , 'reset_password_view'])->name('password.reset');

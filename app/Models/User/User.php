@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Category\Category;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -29,7 +30,6 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -61,4 +61,6 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         return asset('storage/'.$this->avatar);
     }
+    
+
 }

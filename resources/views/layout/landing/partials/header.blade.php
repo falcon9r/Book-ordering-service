@@ -23,17 +23,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
                 <ul class="navbar-nav search-right mt-lg-0 mt-2">
                     <li class="nav-item mr-3" title="Search"><a href="#search" class="btn search-search">
                             <span class="fa fa-search" aria-hidden="true"></span></a></li>

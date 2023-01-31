@@ -4,9 +4,6 @@
         <div class="row footer-top-28">
             <div class="col-lg-6 footer-list-28 pr-lg-5 mt-5">
                 <h6 class="footer-title-28">Contact information</h6>
-                <p class="pr-lg-5">Lorem ipsum dolor sit amet, consectetur elit. Nihil sit dicta, commodi maxime
-                    provident quidem non, amet.</p>
-
                 <div class="main-social-footer-28 mt-3">
                     <ul class="social-icons">
                         <li class="facebook">
@@ -30,38 +27,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-md-4 col-6 footer-list-28 mt-5">
-                        <h6 class="footer-title-28">Useful links</h6>
-                        <ul>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="blog.html">Blog Posts</a></li>
-                            <li><a href="#pricing">Pricing plans</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-6 footer-list-28 mt-5">
-                        <h6 class="footer-title-28">Page links</h6>
-                        <ul>
-                            <li><a href="#">Why</a></li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="about.html">Photographers</a></li>
-                            <li><a href="#pricing">Pricing plans</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-6 footer-list-28 mt-5">
-                        <h6 class="footer-title-28">Help</h6>
-                        <ul>
-                            <li><a href="#privacy">Privacy policy</a></li>
-                            <li><a href="#support"> Support</a></li>
-                            <li><a href="#terms">Terms & conditions</a></li>
-                            <li><a href="#license">License and uses</a></li>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </div>

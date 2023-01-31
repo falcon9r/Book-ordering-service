@@ -28,6 +28,7 @@ class LoginController extends Controller
         {
             $remember = $request->has('remember') ? true : false;
             Auth::login($user , $remember);
+            return redirect()->route('profile');
         }
     }
 }

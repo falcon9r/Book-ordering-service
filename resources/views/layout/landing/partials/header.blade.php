@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mx-lg-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                 <ul class="navbar-nav search-right mt-lg-0 mt-2">
                     <li class="nav-item mr-3" title="Search"><a href="#search" class="btn search-search">

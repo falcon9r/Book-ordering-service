@@ -3,29 +3,36 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Client\Book\IntoBasketRequest;
 use App\Http\Requests\User\Book\EditRequest;
 use App\Http\Requests\User\Book\StoreRequest;
 use App\Http\Requests\User\Book\UpdateRequest;
 use App\Http\Requests\User\Book\UploadRequest;
 use App\Models\Book\Book;
+use App\Models\UserBookBasket\UserBookBasket;
 use App\Repositories\Book\BookRepositoryContract;
 use App\Repositories\Category\CategoryRepositoryContract;
 use App\Repositories\Common\AuthorsRepositoryContract;
+use App\Services\Book\BookServiceContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
     private $bookRepositoryContract;
     private $categoryRepositoryContract;
     private $authorsRepositoryContract;
+    private $bookServiceContract;
 
     public function __construct(BookRepositoryContract $bookRepositoryContract ,
                                 CategoryRepositoryContract $categoryRepositoryContract ,
-                                AuthorsRepositoryContract $authorsRepositoryContract)
+                                AuthorsRepositoryContract $authorsRepositoryContract ,
+                                BookServiceContract $bookServiceContract)
     {
         $this->bookRepositoryContract = $bookRepositoryContract;
         $this->categoryRepositoryContract = $categoryRepositoryContract;
         $this->authorsRepositoryContract = $authorsRepositoryContract;
+        $this->bookServiceContract = $bookServiceContract;
     }
 
     /**
@@ -129,5 +136,41 @@ class BookController extends Controller
         $this->bookRepositoryContract->update(['book_cover' => $book_cover] , $id);
         session()->flash('success' , 'Book`s photo uploaded');
         return redirect()->route('user.books.index');
+    }
+
+    public function show_client($id)
+    {
+        $book = $this->bookRepositoryContract->FindById($id);
+        $books = Book::query()->inRandomOrder()->paginate(10);
+        return view('client.book.show',[
+            'book' => $book,
+            'already_in_basket' => $this->bookServiceContract->alreadyInBasket($id),
+            'books' => $books
+        ]);
+    }
+
+    public function into_basket($id , IntoBasketRequest $request)
+    {
+        UserBookBasket::query()->create([
+            'book_id' => $id,
+            'user_id' => Auth::id()
+        ]);
+        session()->flash('success' , 'Book`s in basket');
+        return redirect()->back();
+    }
+
+    public function basket()
+    {
+        $basket = UserBookBasket::query()->where('user_id' , Auth::id())->pluck('book_id');
+        $books = Book::query()->whereIn('id' , $basket)->get();
+        return view('client.book.basket',[
+            'books' => $books
+        ]);
+    }
+    public function out_basket($id)
+    {
+        UserBookBasket::query()->where('id' , $id)->forceDelete();
+        session()->flash('success' , 'Book`s out basket');
+        return redirect()->back();
     }
 }

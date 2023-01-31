@@ -51,7 +51,7 @@
                 <!-- search popup -->
                 <div id="search" class="pop-overlay">
                     <div class="popup">
-                        <form action="#" method="GET" class="d-sm-flex">
+                        <form action="{{ route('search') }}" method="Get" class="d-sm-flex">
                             <input type="search" placeholder="Search.." name="search" required="required" autofocus>
                             <button type="submit">Search</button>
                             <a class="close" href="#url">&times;</a>

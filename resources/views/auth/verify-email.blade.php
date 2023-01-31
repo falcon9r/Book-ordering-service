@@ -32,7 +32,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center"><img class="d-block mx-auto mb-4" src="{{ asset("assets/img/icons/spot-illustrations/16.png") }}" alt="Email" width="100" />
                                         <h3 class="mb-2">Please verify your email!</h3>
-                                        <p>An email has been sent to <strong>xyz@abc.com</strong>. Please click on the included link to reset your password.
+                                        <p>An email has been sent. Please click on the included link to reset your password.
                                         </p>
                                         <a class="btn btn-primary btn-sm mt-3" href="{{ route('verification.send') }}">
                                             <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4 down-1"></span>

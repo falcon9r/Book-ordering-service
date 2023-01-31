@@ -31,13 +31,6 @@ class Book extends Model
         'publication'
     ];
 
-    public static function boot()
-    {
-        parent::boot();
-        self::creating(function ($model){
-           $model->user_id = Auth::id();
-        });
-    }
 
     protected $casts = [
         'price' => 'double'

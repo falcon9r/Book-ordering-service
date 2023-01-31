@@ -27,13 +27,13 @@
                     <div class="row justify-content-center g-0">
                         <div class="col-lg-9 col-xl-8 col-xxl-6">
                             <div class="card">
-                                <div class="card-header bg-circle-shape bg-shape text-center p-2"><a class="font-sans-serif fw-bolder fs-4 z-index-1 position-relative link-light light" href="../../../index.html">falcon</a></div>
+                                <div class="card-header bg-circle-shape bg-shape text-center p-2"><a class="font-sans-serif fw-bolder fs-4 z-index-1 position-relative link-light light" href="{{ route('home') }}">falcon</a></div>
                                 <div class="card-body p-4">
                                     <div class="row flex-between-center">
                                         <div class="col-auto">
                                             <h3>Register</h3>
                                         </div>
-                                        <div class="col-auto fs--1 text-600"><span class="mb-0 fw-semi-bold">Already User?</span> <span><a href="../../../pages/authentication/split/login.html">Login</a></span></div>
+                                        <div class="col-auto fs--1 text-600"><span class="mb-0 fw-semi-bold">Already User?</span> <span><a href="{{ route('login') }}">Login</a></span></div>
                                     </div>
                                     {!! Form::open(['route' => 'register', 'method' => 'POST']) !!}
                                     @include('common.errors')

@@ -24,6 +24,7 @@ class BookRepository implements BookRepositoryContract
 
     public function create($data)
     {
+        $data['user_id'] = Auth::id();
         $book = Book::query()->create($data);
         if(isset($data['categories']))
         {

@@ -12,6 +12,8 @@ interface BookRepositoryContract
 {
     public function create($data);
 
+    public function search($value);
+
     public function FindById($id);
 
     public function update($data , $id);

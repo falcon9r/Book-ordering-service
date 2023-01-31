@@ -83,7 +83,7 @@
                                             </a>
                                             <!-- more inner pages-->
                                         </li>
-                                        <li class="nav-item"><a class="nav-link" href="app/email/compose.html" aria-expanded="false">
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('user.orders.index') }}" aria-expanded="false">
                                                 <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Orders</span>
                                                 </div>
                                             </a>
@@ -110,46 +110,25 @@
                                     </div>
                                 </a>
                                 <ul class="nav collapse false" id="book">
-                                    <li class="nav-item"><a class="nav-link" href="app/email/inbox.html" aria-expanded="false">
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('basket') }}" aria-expanded="false">
                                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Basket</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="app/email/email-detail.html" aria-expanded="false">
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('client.orders.index') }}" aria-expanded="false">
                                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">My Orders</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="app/email/compose.html" aria-expanded="false">
-                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Recommendations</span>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Search and recommendations</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
                                 </ul>
-
-                                <!-- parent pages--><a class="nav-link" href="../app/calendar.html" role="button"
-                                                       aria-expanded="false">
-                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                                class="fas fa-calendar-alt"></span></span><span class="nav-link-text ps-1"></span>
-                                    </div>
-                                </a>
-                                <!-- parent pages--><a class="nav-link" href="../app/chat.html" role="button"
-                                                       aria-expanded="false">
-                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                                class="fas fa-comments"></span></span><span
-                                            class="nav-link-text ps-1">Chat</span>
-                                    </div>
-                                </a>
-                                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#email" role="button"
-                                                       data-bs-toggle="collapse" aria-expanded="false"
-                                                       aria-controls="email">
-                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                                class="fas fa-envelope-open"></span></span><span class="nav-link-text ps-1">Email</span>
-                                    </div>
-                                </a>
                             </li>
                             <li class="nav-item">
                                 <!-- label-->

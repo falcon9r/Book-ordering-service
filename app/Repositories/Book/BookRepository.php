@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Auth;
 
 class BookRepository implements BookRepositoryContract
 {
+
+    public function search($value)
+    {
+        return Book::query()->where('title' , 'like' , "%{$value}%")->orWhere('code' , 'like' , "%{$value}%")->get();
+    }
+
     public function create($data)
     {
         $book = Book::query()->create($data);

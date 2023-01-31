@@ -11,7 +11,7 @@
                 <div class="w3pvt-logo align-self">
                     <img src="{{ asset('landing/assets/img/icons8-open-book-90.png') }}" alt="">
                     <h3>A book that is not worth reading twice is not worth reading once</h3>
-                    <form action="#" method="post" class="">
+                    <form action="{{ route('search') }}" method="get" class="">
                         <input type="search" name="search" placeholder="Search book here with code or title" required>
                         <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
                     </form>
@@ -39,7 +39,7 @@
                     @foreach($category->books_with_limit as $book)
                         <li class="portfolio-item2 content"   data-id="id-{{$book->id}}" data-type="cat-item-{{ $category->id }}">
                         <span class="image-block">
-                        <a class="image-zoom" href="{{ $book->path }}" data-gal="prettyPhoto[gallery]">
+                        <a class="image-zoom" target href="{{ route('books.client' , $book->id) }} data-gal="prettyPhoto[gallery]">
                             <div class="content-overlay"></div>
                             <img src="{{ $book->path }}" class="w3layouts agileits"   width="350" height="450" alt="portfolio-img">
                             <div class="content-details fadeIn-bottom">
@@ -72,7 +72,8 @@
             <div class="istagram-feeds">
                 @foreach($books as $book)
                     <div class="projects-w3l-grid-info">
-                        <a href="#"><img src="{{ $book->path }}" class="" width="200" height="200"  alt="" />
+                        <a target href="{{ route('books.client' , $book->id) }}">
+                            <img src="{{ $book->path }}" class="" width="200" height="200"  alt="" />
                             <div class="content-overlay"></div>
                             <div class="content-details fadeIn-top">
                                 <span class="fa fa-book"></span>

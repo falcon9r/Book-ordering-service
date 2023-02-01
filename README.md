@@ -20,8 +20,7 @@ after paste into .env
 
 ## Step 6
 **php artisan db:seed**
-## Step 5
-****php artisan migrate --path="database/migrations/*"****
+## Step 7
     php artisan storage:link
 
 ## information

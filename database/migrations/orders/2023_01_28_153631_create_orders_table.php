@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer("user_id")->comment("it is customer");
-            $table->string("name")->comment("customer`s name for this order");
-            $table->string("address")->comment("customer`s address for this order");
             $table->integer("book_id");
             $table->integer("status_id");
             $table->timestamps();

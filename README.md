@@ -16,7 +16,7 @@ copy .env.example
 after paste into .env
 
 ## Step 5
-****php artisan migrate --path="database/migrations/*"****
+**php artisan migrate --path="database/migrations/*"**
 
 ## Step 6
 **php artisan db:seed**

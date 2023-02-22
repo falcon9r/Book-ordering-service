@@ -56,6 +56,17 @@ for more [docs][6]
   php artisan db:seed
 ```
 
+```bash
+  php artisan storage:link
+```
+
+
+***Note*** : To create the symbolic link, you may use [Artisan command][1]:
+```bash
+    php artisan storage:link
+```
+.
+
 Default User
 ------------------
     Email: falcon.9roc@gmail.com    
@@ -63,3 +74,4 @@ Default User
 
 [6]: https://laravel.com/docs/9.x/migrations
 [3]: https://laravel.com/docs/9.x
+[1]: https://laravel.com/docs/10.x/filesystem#the-public-disk

@@ -45,11 +45,6 @@ Generate a new application key
    php artisan key:generate
 ```
 
-Update the dependencies using composer
-```bash
-   composer update
-```
-
 Run the database migrations (Set the database connection in .env before migrating)
 for more [docs][6]
 

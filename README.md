@@ -25,6 +25,11 @@ Switch to the repo folder
    cd Book-ordering-service
 ```
 
+Update all the dependencies using composer
+```bash
+   composer update
+```
+
 Install all the dependencies using composer
 ```bash
    composer install

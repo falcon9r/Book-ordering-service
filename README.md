@@ -62,3 +62,4 @@ Default User
     Password: password
 
 [6]: https://laravel.com/docs/9.x/migrations
+[3]: https://laravel.com/docs/9.x

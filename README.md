@@ -67,6 +67,12 @@ for more [docs][6]
 ```
 .
 
+Run
+-----------
+```bash
+    php artisan serve
+```
+
 Default User
 ------------------
     Email: falcon.9roc@gmail.com    

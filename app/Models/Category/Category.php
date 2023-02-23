@@ -12,6 +12,7 @@ class Category extends Model
 {
     use HasFactory , SoftDeletes;
     const  WELCOMEBOOKLIMIT = 10;
+
     protected $fillable = [
         'name',
         'id',

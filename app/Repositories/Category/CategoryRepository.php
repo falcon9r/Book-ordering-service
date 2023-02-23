@@ -25,7 +25,21 @@ class CategoryRepository implements CategoryRepositoryContract
 
     public function WelcomeCategoryWithBook($limit = 5)
     {
-        return Category::query()->inRandomOrder()->limit($limit)->get();
+        $categories = Category::query()->inRandomOrder()->with('books_with_limit')->limit($limit)->get();
+        $keeperIds = [];
+        foreach ($categories as $category)
+        {
+            $tempBooks = [];
+            foreach ($category->books_with_limit as $book)
+            {
+                if(isset($keeperIds[$book->id]))
+                    continue;
+                $tempBooks[] = $book;
+                $keeperIds[$book->id] = true;
+            }
+            $category['books'] = $tempBooks;
+        }
+        return $categories;
     }
 
     public function create($data)

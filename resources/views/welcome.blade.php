@@ -36,7 +36,7 @@
             </ul>
             <ul class="portfolio-area clearfix p-0 m-0">
                 @foreach($categories as $category)
-                    @foreach($category->books_with_limit as $book)
+                    @foreach($category['books'] as $book)
                         <li class="portfolio-item2 content"   data-id="id-{{$book->id}}" data-type="cat-item-{{ $category->id }}">
                         <span class="image-block">
                         <a class="image-zoom" target href="{{ route('books.client' , $book->id) }} data-gal="prettyPhoto[gallery]">

@@ -18,24 +18,7 @@
                     <div class="card-body">
                         <div class="row flex-between-center">
                             <div class="col-sm-auto mb-2 mb-sm-0">
-                                <h6 class="mb-0">Showing 1-24 of 205 Products</h6>
-                            </div>
-                            <div class="col-sm-auto">
-                                <div class="row gx-2 align-items-center">
-                                    <div class="col-auto">
-                                        <form class="row gx-2">
-                                            <div class="col-auto"><small>Sort by:</small></div>
-                                            <div class="col-auto">
-                                                <select class="form-select form-select-sm" aria-label="Bulk actions">
-                                                    <option selected="">Best Match</option>
-                                                    <option value="Refund">Newest</option>
-                                                    <option value="Delete">Price</option>
-                                                </select>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-auto pe-0"> <a class="text-600 px-1" href="../../../app/e-commerce/product/product-list.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Product List"><span class="fas fa-list-ul"></span></a></div>
-                                </div>
+                                <h6 class="mb-0">My books for Sale</h6>
                             </div>
                         </div>
                     </div>

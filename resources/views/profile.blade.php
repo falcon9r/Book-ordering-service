@@ -31,7 +31,11 @@
                             <div class="col-lg-8">
                                 <h4 class="mb-1">{{ $user->name }}</h4>
                                 <p class="text-500">{{ $user->address  }}</p>
-                                <button class="btn btn-falcon-primary btn-sm px-3" type="button">Edit</button>
+                                <a href="{{ route('settings') }}">
+                                <button class="btn btn-falcon-primary btn-sm px-3" type="button">
+                                    Edit
+                                </button>
+                                </a>
                                 <div class="border-dashed-bottom my-4 d-lg-none"></div>
                             </div>
                         </div>
